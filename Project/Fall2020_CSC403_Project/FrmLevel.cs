@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+      Game.player = player;  
       timeBegin = DateTime.Now;
     }
 

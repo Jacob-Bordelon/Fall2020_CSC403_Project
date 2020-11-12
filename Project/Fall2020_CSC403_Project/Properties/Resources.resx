@@ -139,4 +139,19 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="MnM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\MnM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mrpeanut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\player1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snackAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\snackAttack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="applejacks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\applejacks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chestercheetah" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chestercheetah.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
