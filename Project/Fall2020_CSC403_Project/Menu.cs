@@ -17,25 +17,54 @@ namespace Fall2020_CSC403_Project
         private PictureBox pictureBox1;
         private Button button4;
 
+        public static Image Character{get;set;}
+
 
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
+            this.BackColor = Color.White;
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Size = new System.Drawing.Size(137, 210);
+            this.button1.Image = (Image)new Bitmap(global::Fall2020_CSC403_Project.Properties.Resources.mrpeanut,this.button1.Size);
+            this.button1.Location = new System.Drawing.Point(90, 233);
+            this.button1.Name = "button1";
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Mr. Peanut";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Size = new System.Drawing.Size(137, 210);
+            this.button2.Image = (Image)new Bitmap(global::Fall2020_CSC403_Project.Properties.Resources.applejacks, this.button2.Size);
+            this.button2.Location = new System.Drawing.Point(253, 233);
+            this.button2.Name = "button2";
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Cinnamon";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Size = new System.Drawing.Size(137, 210);
+            this.button3.Image = (Image)new Bitmap(global::Fall2020_CSC403_Project.Properties.Resources.MnM, this.button3.Size);
             this.button3.Location = new System.Drawing.Point(412, 233);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 210);
             this.button3.TabIndex = 2;
             this.button3.Text = "MnM";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -45,52 +74,25 @@ namespace Fall2020_CSC403_Project
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Size = new System.Drawing.Size(137, 210);
+            this.button4.Image = (Image)new Bitmap(global::Fall2020_CSC403_Project.Properties.Resources.chestercheetah, this.button4.Size);
             this.button4.Location = new System.Drawing.Point(571, 233);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(137, 210);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Chester Cheeta";
+            this.button4.Text = "Chester Cheetah";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // pictureBox1
-            // (Image)(new Bitmap(MyImage, new Size(32,32)));
-    
-            this.pictureBox1.Location = new System.Drawing.Point(123, 12);
+            // 
+            this.pictureBox1.Image = global::Fall2020_CSC403_Project.Properties.Resources.snackAttack;
+            this.pictureBox1.Location = new System.Drawing.Point(123, 30);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(561, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(561, 145);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Image = (Image)(new Bitmap(global::Fall2020_CSC403_Project.Properties.Resources.snackAttack, new Size(this.pictureBox1.Width,this.pictureBox1.Height)));
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(253, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 210);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cinnamon";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(90, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 210);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Mr. Peanut";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainMenu
             // 
@@ -105,25 +107,36 @@ namespace Fall2020_CSC403_Project
             this.ResumeLayout(false);
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            Character= this.button1.Image;
+            start();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Character=this.button2.Image;
+            start();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Character= this.button3.Image;
+            start();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Character= this.button4.Image;
+            start();
+        }
 
+        private void start()
+        {
+
+            
+            this.Hide();
+            var gameForm = new FrmLevel();
+            gameForm.Closed += (s, args) => this.Close();
+            gameForm.Show();
+           
         }
     }
 }

@@ -5,6 +5,8 @@
     /// </summary>
     private System.ComponentModel.IContainer components = null;
 
+    
+
     /// <summary>
     /// Clean up any resources being used.
     /// </summary>
@@ -23,6 +25,7 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+      var character = MainMenu.Character;
       this.components = new System.ComponentModel.Container();
       this.btnAttack = new System.Windows.Forms.Button();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
@@ -113,7 +116,7 @@
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+      this.picPlayer.BackgroundImage = character;
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.picPlayer.Location = new System.Drawing.Point(70, 98);
@@ -154,7 +157,8 @@
     }
 
     #endregion
-
+    
+    
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
