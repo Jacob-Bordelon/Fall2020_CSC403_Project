@@ -2,7 +2,8 @@
 
 namespace Fall2020_CSC403_Project.code
 {
-    class Cheetocat : Template
+    //The Cheetocat Template
+    public class Cheetocat : Template
     {
         public Cheetocat()
         {

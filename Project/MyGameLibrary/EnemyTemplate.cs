@@ -2,11 +2,11 @@
 
 namespace Fall2020_CSC403_Project.code
 {
-    class EnemyTemplate : Template
+    public class EnemyTemplate : Template
     {
         public EnemyTemplate () 
         {
-            Strength = 1;
+            Strength = 2;
             HealthPerLevel = 20;
             Defense = 1;
 			Level = 1;

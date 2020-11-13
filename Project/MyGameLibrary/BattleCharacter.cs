@@ -36,38 +36,46 @@ namespace Fall2020_CSC403_Project.code
       Health = MaxHealth;
     }
 
+    //Returns the ammount of damage done by an attack
     public void OnAttack(int amount) {
-            int damage = 0;
-            if (CharacterTemplate.Level == 1) { damage = CharacterTemplate.firstAttack(); }
-            else if (CharacterTemplate.Level == 2) { damage = CharacterTemplate.seccondAttack(); }
-            else if (CharacterTemplate.Level == 3) { damage = CharacterTemplate.thirdAttack(); }
+             int damage = 0;
+            switch (CharacterTemplate.Level)
+            {
+                case 1:
+                    damage = CharacterTemplate.firstAttack();
+                    break;
+                case 2:
+                    damage = CharacterTemplate.seccondAttack();
+                    break;
+                case 3:
+                    damage = CharacterTemplate.thirdAttack();
+                    break;
+                default:
+                    damage = 0;
+                    break;
+            }
             AttackEvent((int)(amount * damage));
     }
+    //sets the character Template to the indexed Template
     public void SetTemplate(int type)
         {
             CharacterTemplate = GetTemplate(type);
         }
+    //Returns an indexed Template
     internal Template GetTemplate (int type)
         {
-            if(type == 0)
+           switch (type)
             {
-                return new Fighter();
-            }
-            else if (type == 1)
-            {
-                return new Wizard();
-            }
-            else if (type == 2)
-            {
-                return new Rogue();
-            }
-            else if (type == 3)
-            {
-                return new Cheetocat();
-            }
-            else
-            {
-                return new Fighter();
+                case 0:
+                    return new Fighter();
+                case 1:
+                    return new Wizard();
+                case 2:
+                    return new Rogue();
+                case 3:
+                    return new Cheetocat();
+                default:
+                    return new EnemyTemplate();
             }
         }
 

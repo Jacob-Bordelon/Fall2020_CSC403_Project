@@ -25,7 +25,7 @@ namespace Fall2020_CSC403_Project {
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       //Andrew Hall Player Template Selector
-      player.SetTemplate(0);
+      player.CharacterTemplate = MainMenu.CharacterTemplate;
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -141,8 +141,9 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+    private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
-    }
+        }
   }
 }

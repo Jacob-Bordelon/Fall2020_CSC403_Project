@@ -1,5 +1,6 @@
 ﻿namespace Fall2020_CSC403_Project.code
 {
+	//The Fighter Template ADH
     public class Fighter : Template
 	{
 		public Fighter()
@@ -15,10 +16,9 @@
 
         public override int firstAttack()
 		{
-			//int damage = Strength + r.Next(1, 6);
-			//if (r.Next(1, 10) == 10) { damage = 2 * damage; }
-			//return damage;
-			return 1;
+			int damage = Strength + r.Next(1, 6);
+			if (r.Next(1, 10) == 10) { damage = 2 * damage; }
+			return damage;
 		}
 
 		public override int seccondAttack()

@@ -2,7 +2,7 @@
 
 namespace Fall2020_CSC403_Project.code
 {
-    class Rogue : Template
+    public class Rogue : Template
     {
         public Rogue()
         {
