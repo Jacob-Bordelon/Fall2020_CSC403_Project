@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project.code {
     {
     public Inventory PlayerInventory { get; private set; }
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
+            // Add an inventory to each player 
             PlayerInventory = new Inventory();
     }
   }

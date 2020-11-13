@@ -28,7 +28,9 @@ namespace Fall2020_CSC403_Project {
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       
+      // Starting items for player
       player.PlayerInventory.InsertEntry(new Potion(), 2);
+      // Examples of how to use an item, and how to withdraw and item to use
       //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
       //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
       
@@ -138,7 +140,7 @@ namespace Fall2020_CSC403_Project {
           break;
                 
         case Keys.I:
-          Console.WriteLine("--------ENTER---------");
+          Console.WriteLine("--------INVENTORY---------");
           Console.WriteLine("Number of Keys: {0}", player.PlayerInventory.QuantityItem(1000));
           Console.WriteLine("Number of Potions: {0}", player.PlayerInventory.QuantityItem(1001));
           Console.WriteLine("Number of StengthUps: {0}", player.PlayerInventory.QuantityItem(1002));
@@ -147,10 +149,6 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.Escape:
           Console.WriteLine("---------EXIT---------");
-          break;
-
-        case Keys.P:
-          player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
           break;
           
         default:

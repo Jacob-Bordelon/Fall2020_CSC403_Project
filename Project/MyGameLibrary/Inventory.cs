@@ -9,12 +9,15 @@ namespace Fall2020_CSC403_Project.code
 {
     public class Inventory
     {
+        // Limits the number of slots in the invetory window
         const int MaxNumberSlots = 24;
         public List<Entry> InventoryList;
         public Inventory()
         {
             InventoryList = new List<Entry>();
         }
+        // Adds an entry to the invetory list. If entry exists, it increases the quantity
+        // It will limit the number of items according to the maximum permited by the item
         public void InsertEntry(Item item, int quantity)
         {
             if (InventoryList.Count < MaxNumberSlots)
@@ -51,6 +54,7 @@ namespace Fall2020_CSC403_Project.code
             }
             
         }
+        // Finds the entry and removes it from the list to update the inventory
         public Item WithdrawEntry(int ID)
         {
             Item ItemToWithdraw = null;
@@ -72,6 +76,7 @@ namespace Fall2020_CSC403_Project.code
 
             return ItemToWithdraw;
         }
+        // Method to get the quantity of a certain item
         public int QuantityItem(int ID)
         {
             int QuantityItem = 0; 
@@ -85,7 +90,7 @@ namespace Fall2020_CSC403_Project.code
             return QuantityItem;
         }
     }
-
+    // Entry structure in order to keep track of number of items in the inventory
     public class Entry
     {
         public Item EntryItem { get; set; }
