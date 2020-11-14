@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -150,6 +150,18 @@
   </data>
   <data name="applejacks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\applejacks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\item_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_maxhp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\item_maxhp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\item_potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_strength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\item_strength.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chestercheetah" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chestercheetah.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -70,7 +70,18 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        instance = null;
+        Close();
+      }
+      else if(enemy.Health <= 0) {
+        // To add a random item after defeating an enemy
+        player.PlayerInventory.InsertEntry(loot.GetRandomItem(), 1);
+        // Checks if enemy is a boss (Boss color is red). I recommend to add a function to the enemy: bool IsBoss()
+        // Add a key to the invetory
+        if(enemy.Color == Color.Red) {
+             player.PlayerInventory.InsertEntry(new Key(), 1);
+        }
         instance = null;
         Close();
       }
