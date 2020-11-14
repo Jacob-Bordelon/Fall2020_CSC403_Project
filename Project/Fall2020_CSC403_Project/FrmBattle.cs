@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -10,7 +10,6 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
-    private LootRandomizer loot = new LootRandomizer();
 
     private FrmBattle() {
       InitializeComponent();
@@ -102,4 +101,3 @@ namespace Fall2020_CSC403_Project {
     }
   }
 }
-s

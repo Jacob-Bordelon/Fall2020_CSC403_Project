@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,6 +58,9 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
@@ -65,6 +68,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
@@ -122,6 +127,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\applejacks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\ChesterCheeta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\MnM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\snackAttack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chestercheetah.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\applejacks.png" />
     <Content Include="data\item_key.png" />
     <None Include="data\item_maxhp.png" />
     <Content Include="data\item_potion.png" />

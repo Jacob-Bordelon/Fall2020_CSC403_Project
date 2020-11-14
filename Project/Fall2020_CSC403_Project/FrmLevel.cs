@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -24,9 +24,8 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      //Andrew Hall Player Template Selector
+      player.CharacterTemplate = MainMenu.CharacterTemplate;
       
       // Starting items for player
       player.PlayerInventory.InsertEntry(new Potion(), 2);
@@ -34,6 +33,10 @@ namespace Fall2020_CSC403_Project {
       //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
       //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
       
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -48,7 +51,7 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+      Game.player = player;  
       timeBegin = DateTime.Now;
     }
 
@@ -138,7 +141,7 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
-                
+          
         case Keys.I:
           Console.WriteLine("--------INVENTORY---------");
           Console.WriteLine("Number of Keys: {0}", player.PlayerInventory.QuantityItem(1000));
@@ -150,15 +153,16 @@ namespace Fall2020_CSC403_Project {
         case Keys.Escape:
           Console.WriteLine("---------EXIT---------");
           break;
-          
+
         default:
           player.ResetMoveSpeed();
           break;
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+    private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
-    }
+        }
   }
 }
