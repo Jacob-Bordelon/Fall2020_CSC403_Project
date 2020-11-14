@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code 
 {
-     /// <summary>
-     /// This is the class for a BattleCharacter
-     /// </summary>
-    public class BattleCharacter : Character {
+    /// <summary>
+    /// This is the class for a BattleCharacter
+    /// </summary>
+    public class BattleCharacter : Character
+    {
         /// <summary>
         /// This is the current health for a BattleCharacter
         /// </summary>
@@ -30,15 +31,17 @@ namespace Fall2020_CSC403_Project.code
         /// </summary>
         public event Action<int> AttackEvent;
 
-    public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      CharacterTemplate = new EnemyTemplate();
-      MaxHealth = CharacterTemplate.MaxHealth;
-      Health = MaxHealth;
-    }
+        public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
+        {
+            CharacterTemplate = new EnemyTemplate();
+            MaxHealth = CharacterTemplate.MaxHealth;
+            Health = MaxHealth;
+        }
 
-    //Returns the ammount of damage done by an attack
-    public void OnAttack(int amount) {
-             int damage = 0;
+        //Returns the ammount of damage done by an attack
+        public void OnAttack(int amount)
+        {
+            int damage = 0;
             switch (CharacterTemplate.Level)
             {
                 case 1:
@@ -55,16 +58,16 @@ namespace Fall2020_CSC403_Project.code
                     break;
             }
             AttackEvent((int)(amount * damage));
-    }
-    //sets the character Template to the indexed Template
-    public void SetTemplate(int type)
+        }
+        //sets the character Template to the indexed Template
+        public void SetTemplate(int type)
         {
             CharacterTemplate = GetTemplate(type);
         }
-    //Returns an indexed Template
-    internal Template GetTemplate (int type)
+        //Returns an indexed Template
+        internal Template GetTemplate(int type)
         {
-           switch (type)
+            switch (type)
             {
                 case 0:
                     return new Fighter();
@@ -79,12 +82,13 @@ namespace Fall2020_CSC403_Project.code
             }
         }
 
-    public void SetLevel(int level)
+        public void SetLevel(int level)
         {
             CharacterTemplate.Level = level;
         }
-    //Adds or subtracts from the health pool bounded by MaxHealth and zero
-    public void AlterHealth(int amount) {
+        //Adds or subtracts from the health pool bounded by MaxHealth and zero
+        public void AlterHealth(int amount)
+        {
             int hp = Health += amount;
             if (hp <= 0)
             {
@@ -98,5 +102,6 @@ namespace Fall2020_CSC403_Project.code
             {
                 Health = MaxHealth;
             }
-    } 
+        }
+    }
 }
