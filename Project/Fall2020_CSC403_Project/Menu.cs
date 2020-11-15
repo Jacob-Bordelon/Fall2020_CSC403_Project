@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Fall2020_CSC403_Project.code;
 
 namespace Fall2020_CSC403_Project
 {
     class MainMenu : Form
     {
+        public static Template CharacterTemplate { get; set; }
         public MainMenu()
         {
             InitializeComponent();
@@ -18,7 +20,6 @@ namespace Fall2020_CSC403_Project
         private Button button4;
 
         public static Image Character{get;set;}
-
 
         private void InitializeComponent()
         {
@@ -105,38 +106,44 @@ namespace Fall2020_CSC403_Project
             this.Name = "MainMenu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-
         }
+        //selects Mr Peanut The Fighter as the playable character ADH
         private void button1_Click(object sender, EventArgs e)
         {
-            Character= this.button1.Image;
+            Character = this.button1.Image;
+            CharacterTemplate = new Fighter(); 
             start();
         }
+        //selects Mr Cinnimon the Wizard as the playable character ADH
         private void button2_Click(object sender, EventArgs e)
         {
-            Character=this.button2.Image;
+            Character = this.button2.Image;
+            CharacterTemplate = new Wizard();
             start();
         }
+        //selects Mr M&M the Rogue as the playable character ADH
         private void button3_Click(object sender, EventArgs e)
         {
-            Character= this.button3.Image;
+            Character = this.button3.Image;
+            CharacterTemplate = new Rogue();
             start();
         }
+        //selects Mr Chester the CheetoCat as the playable character ADH
         private void button4_Click(object sender, EventArgs e)
         {
-            Character= this.button4.Image;
+            Character = this.button4.Image;
+            CharacterTemplate = new Cheetocat();
             start();
         }
 
         private void start()
         {
-
-            
+            FrmLevel.playerImage = Character;
+            FrmBattle.playerImage = Character;
             this.Hide();
             var gameForm = new FrmLevel();
             gameForm.Closed += (s, args) => this.Close();
             gameForm.Show();
-           
         }
     }
 }

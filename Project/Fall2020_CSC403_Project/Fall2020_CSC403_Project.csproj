@@ -58,6 +58,12 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMenu.Designer.cs">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMenu.resx">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -139,13 +148,17 @@
     <None Include="data\snackAttack.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\player1.png" />
+    <None Include="data\player.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\applejacks.png" />
+    <Content Include="data\item_key.png" />
+    <None Include="data\item_maxhp.png" />
+    <Content Include="data\item_potion.png" />
+    <None Include="data\item_strength.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

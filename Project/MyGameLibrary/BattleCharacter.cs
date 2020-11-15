@@ -6,26 +6,80 @@ using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
-namespace Fall2020_CSC403_Project.code {
-  public class BattleCharacter : Character {
-    public int Health { get; private set; }
-    public int MaxHealth { get; private set; }
-    private float strength;
+namespace Fall2020_CSC403_Project.code 
+{
+    /// <summary>
+    /// This is the class for a BattleCharacter
+    /// </summary>
+    public class BattleCharacter : Character
+    {
+        /// <summary>
+        /// This is the current health for a BattleCharacter
+        /// </summary>
+        public int Health { get; private set; }
+        /// <summary>
+        /// This is the Maximum health for a BattleCharacter
+        /// </summary>
+        public int MaxHealth { get; private set; }
+        /// <summary>
+        /// This is the Template for a BattleCharacter
+        /// </summary>
+        public Template CharacterTemplate { get; set; }
 
-    public event Action<int> AttackEvent;
+        /// <summary>
+        /// sends the calculated damage to the frmBattle
+        /// </summary>
+        public event Action<int> AttackEvent;
 
-    public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
-      MaxHealth = 20;
-      strength = 2;
-      Health = MaxHealth;
+        public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
+        {
+            CharacterTemplate = new EnemyTemplate();
+            MaxHealth = CharacterTemplate.MaxHealth;
+            Health = MaxHealth;
+        }
+
+        //Returns the ammount of damage done by an attack
+        public void OnAttack(int amount)
+        {
+            int damage = 0;
+            switch (CharacterTemplate.Level)
+            {
+                case 1:
+                    damage = CharacterTemplate.firstAttack();
+                    break;
+                case 2:
+                    damage = CharacterTemplate.seccondAttack();
+                    break;
+                case 3:
+                    damage = CharacterTemplate.thirdAttack();
+                    break;
+                default:
+                    damage = 0;
+                    break;
+            }
+            AttackEvent((int)(amount * damage));
+        }
+
+        public void SetLevel(int level)
+        {
+            CharacterTemplate.Level = level;
+        }
+        //Adds or subtracts from the health pool bounded by MaxHealth and zero
+        public void AlterHealth(int amount)
+        {
+            int hp = Health += amount;
+            if (hp <= 0)
+            {
+                Health = 0;
+            }
+            else if (hp <= MaxHealth)
+            {
+                Health = hp;
+            }
+            else if (hp > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+        }
     }
-
-    public void OnAttack(int amount) {
-      AttackEvent((int)(amount * strength));
-    }
-
-    public void AlterHealth(int amount) {
-      Health += amount;
-    }
-  }
 }
