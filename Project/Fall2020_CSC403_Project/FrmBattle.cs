@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using Fall2020_CSC403_Project.Properties;
 using System;
 using System.Drawing;
@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private LootRandomizer loot = new LootRandomizer();
 
     private FrmBattle() {
       InitializeComponent();
@@ -64,13 +65,24 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      player.OnAttack(-1);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnAttack(-1);
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        instance = null;
+        Close();
+      }
+      else if(enemy.Health <= 0) {
+        // To add a random item after defeating an enemy
+        player.PlayerInventory.InsertEntry(loot.GetRandomItem(), 1);
+        // Checks if enemy is a boss (Boss color is red). I recommend to add a function to the enemy: bool IsBoss()
+        // Add a key to the invetory
+        if(enemy.Color == Color.Red) {
+             player.PlayerInventory.InsertEntry(new Key(), 1);
+        }
         instance = null;
         Close();
       }

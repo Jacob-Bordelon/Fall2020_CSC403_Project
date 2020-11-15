@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -24,6 +24,15 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      //Andrew Hall Player Template Selector
+      player.CharacterTemplate = MainMenu.CharacterTemplate;
+      
+      // Starting items for player
+      player.PlayerInventory.InsertEntry(new Potion(), 2);
+      // Examples of how to use an item, and how to withdraw and item to use
+      //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
+      //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
+      
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -132,6 +141,18 @@ namespace Fall2020_CSC403_Project {
         case Keys.Down:
           player.GoDown();
           break;
+          
+        case Keys.I:
+          Console.WriteLine("--------INVENTORY---------");
+          Console.WriteLine("Number of Keys: {0}", player.PlayerInventory.QuantityItem(1000));
+          Console.WriteLine("Number of Potions: {0}", player.PlayerInventory.QuantityItem(1001));
+          Console.WriteLine("Number of StengthUps: {0}", player.PlayerInventory.QuantityItem(1002));
+          Console.WriteLine("Number of MaxHPUps: {0}", player.PlayerInventory.QuantityItem(1003));
+          break;
+
+        case Keys.Escape:
+          Console.WriteLine("---------EXIT---------");
+          break;
 
         default:
           player.ResetMoveSpeed();
@@ -139,8 +160,9 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
+    private void lblInGameTime_Click(object sender, EventArgs e)
+        {
 
-    }
+        }
   }
 }
