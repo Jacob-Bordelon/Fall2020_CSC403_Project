@@ -130,12 +130,6 @@
     <Folder Include="code\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
-      <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
-      <Name>MyGameLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\applejacks.png" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +153,12 @@
     <None Include="data\item_maxhp.png" />
     <Content Include="data\item_potion.png" />
     <None Include="data\item_strength.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
+      <Project>{f1e60f80-1868-4fe5-991b-fddcfaf9b16b}</Project>
+      <Name>MyGameLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

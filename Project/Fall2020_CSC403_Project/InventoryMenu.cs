@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using Fall2020_CSC403_Project.code;
 using System.Diagnostics;
 using System.Linq;
 using System.Drawing;
 using System.Collections.Generic;
 using Fall2020_CSC403_Project.Properties;
+using Fall2020_CSC403_Project.code;
 
 namespace Fall2020_CSC403_Project
 {
