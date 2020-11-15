@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project
     public partial class FrmLevel : Form
     {
         private Player player;
+        public static Image playerImage { get; set; }
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -21,7 +22,7 @@ namespace Fall2020_CSC403_Project
         public FrmLevel()
         {
             InitializeComponent();
-            
+            this.picPlayer.BackgroundImage = playerImage;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -35,6 +36,9 @@ namespace Fall2020_CSC403_Project
 
             // Starting items for player
             player.PlayerInventory.InsertEntry(new Potion(), 2);
+            player.PlayerInventory.InsertEntry(new StrengthIncrease(), 2);
+            player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
+
             // Examples of how to use an item, and how to withdraw and item to use
             //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
             //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
@@ -153,39 +157,34 @@ namespace Fall2020_CSC403_Project
                 case Keys.Left:
                     player.GoLeft();
                     break;
+                case Keys.A:
+                    player.GoLeft();
+                    break;
 
                 case Keys.Right:
+                    player.GoRight();
+                    break;
+                case Keys.D:
                     player.GoRight();
                     break;
 
                 case Keys.Up:
                     player.GoUp();
                     break;
+                case Keys.W:
+                    player.GoUp();
+                    break;
 
                 case Keys.Down:
                     player.GoDown();
                     break;
-
-                case Keys.I:
-                    /*Console.WriteLine("--------INVENTORY---------");
-                    Console.WriteLine("Number of Keys: {0}", player.PlayerInventory.QuantityItem(1000));
-                    Console.WriteLine("Number of Potions: {0}", player.PlayerInventory.QuantityItem(1001));
-                    Console.WriteLine("Number of StengthUps: {0}", player.PlayerInventory.QuantityItem(1002));
-                    Console.WriteLine("Number of MaxHPUps: {0}", player.PlayerInventory.QuantityItem(1003));
-                    */
-
-                    
-
-                    InventoryM = new InventoryMenu();
-                    InventoryM.Show();
-
-
-                    //InventoryM.Show();
-
+                case Keys.S:
+                    player.GoDown();
                     break;
 
-                case Keys.Escape:
-                    System.Diagnostics.Debug.Write("Key has been pressed\n");
+                case Keys.I:
+                    InventoryM = new InventoryMenu();
+                    InventoryM.Show();
                     break;
 
                 default:

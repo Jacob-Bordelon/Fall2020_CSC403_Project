@@ -8,15 +8,20 @@ using System.Drawing;
 namespace Fall2020_CSC403_Project.code
 {
     public class StrengthIncrease : Item
+    {
+        public int STRAmount { get; private set; }
+        public Image Img { get; set; }
+        public StrengthIncrease()
         {
-            public int STRAmount { get; private set; }
-            public Image Img { get; set; }
-            public StrengthIncrease()
-            {
-                ID = 1002;
-                Name = "StrengthUp";
-                STRAmount = 2;
-                MaxNumberOfItems = 20;
-            }
+            ID = 1002;
+            Name = "StrengthUp";
+            STRAmount = 2;
+            MaxNumberOfItems = 20;
         }
+        // Configure How this method is used
+        public override int Use()
+        {
+            return -1;
+        }
+    }
 }

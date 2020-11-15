@@ -59,28 +59,6 @@ namespace Fall2020_CSC403_Project.code
             }
             AttackEvent((int)(amount * damage));
         }
-        //sets the character Template to the indexed Template
-        public void SetTemplate(int type)
-        {
-            CharacterTemplate = GetTemplate(type);
-        }
-        //Returns an indexed Template
-        internal Template GetTemplate(int type)
-        {
-            switch (type)
-            {
-                case 0:
-                    return new Fighter();
-                case 1:
-                    return new Wizard();
-                case 2:
-                    return new Rogue();
-                case 3:
-                    return new Cheetocat();
-                default:
-                    return new EnemyTemplate();
-            }
-        }
 
         public void SetLevel(int level)
         {

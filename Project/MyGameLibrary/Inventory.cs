@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project.code
         {
             InventoryList = new List<Entry>();
         }
+
+
         // Adds an entry to the invetory list. If entry exists, it increases the quantity
         // It will limit the number of items according to the maximum permited by the item
         public void InsertEntry(Item item, int quantity)

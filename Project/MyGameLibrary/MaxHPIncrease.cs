@@ -18,5 +18,18 @@ namespace Fall2020_CSC403_Project.code
             HPAmount = 10;
             MaxNumberOfItems = 20;
         }
+        // Configure How this method is used
+        public override int Use()
+        {
+            int returnVal = -1;
+            if (Game.player.Health < Game.player.MaxHealth)
+            {
+                Game.player.AlterHealth(this.HPAmount);
+                returnVal = 0;
+            }
+            return returnVal;
+
+
+        }
     }
 }

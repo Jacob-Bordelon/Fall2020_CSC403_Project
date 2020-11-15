@@ -18,5 +18,11 @@ namespace Fall2020_CSC403_Project.code
             DoorID = 2000;
             MaxNumberOfItems = 3;
         }
+
+        // Configure How this method is used
+        public override int Use()
+        {
+            return -1;
+        }
     }
 }
