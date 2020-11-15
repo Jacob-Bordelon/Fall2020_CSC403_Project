@@ -28,7 +28,7 @@ namespace Fall2020_CSC403_Project
         /// </summary>
         private void InitializeComponent()
         {
-            var character = MainMenu.Character;
+            
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
@@ -141,7 +141,7 @@ namespace Fall2020_CSC403_Project
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.picPlayer.BackgroundImage = character;
+            this.picPlayer.BackgroundImage = MainMenu.Character;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(119, 510);
             this.picPlayer.Name = "picPlayer";
