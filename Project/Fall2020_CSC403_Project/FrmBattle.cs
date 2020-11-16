@@ -87,8 +87,10 @@ namespace Fall2020_CSC403_Project
             {
                 instance = null;
                 this.Close();
+                WinorFailScreen FailureScreen = new WinorFailScreen("loss");
+                FailureScreen.Show();
 
-                //  TODO: Put failure screen here
+
             }
             else if (enemy.Health <= 0)
             {
@@ -100,8 +102,15 @@ namespace Fall2020_CSC403_Project
                 {
                     player.PlayerInventory.InsertEntry(new Key(), 1);
                 }
+                Enemy.num--;
                 instance = null;
                 this.Close();
+
+                if(Enemy.num <= 0)
+                {
+                    WinorFailScreen VictoryScreen = new WinorFailScreen("win");
+                    VictoryScreen.Show();
+                }
             }
         }
 
