@@ -53,6 +53,7 @@ namespace Fall2020_CSC403_Project
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
 
             bossKoolaid.Color = Color.Red;
+            bossKoolaid.CharacterTemplate.AlterDefense(2);
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
 

@@ -27,14 +27,21 @@ namespace Fall2020_CSC403_Project.code
         /// sends the calculated damage to the frmBattle
         /// </summary>
         public event Action<int> AttackEvent;
-
+        /// <summary>
+        /// The Battle Character is the handler for combat mechanics
+        /// </summary>
+        /// <param name="initPos">initial position</param>
+        /// <param name="collider">colision box</param>
         public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
         {
             CharacterTemplate = new EnemyTemplate();
             SetHPValues();
         }
 
-        //Returns the ammount of damage done by an attack
+        /// <summary>
+        /// Returns the ammount of damage done by an attack
+        /// </summary>
+        /// <param name="amount"></param>
         public void OnAttack(int amount)
         {
             int damage = 0;

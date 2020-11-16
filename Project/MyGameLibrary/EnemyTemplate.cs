@@ -8,7 +8,7 @@ namespace Fall2020_CSC403_Project.code
         {
             Strength = 2;
             HealthPerLevel = 20;
-            Defense = 1;
+            Defense = 6;
 			Level = 1;
 			MaxHealth = HealthPerLevel * Level;
             TemplateName = "Enemy";

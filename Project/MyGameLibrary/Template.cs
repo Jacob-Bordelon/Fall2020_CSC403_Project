@@ -20,7 +20,7 @@ namespace Fall2020_CSC403_Project.code
 		/// </summary>
 		public int MaxHealth { get; set; }
 		/// <summary>
-		/// 
+		/// Level is the level of the template
 		/// </summary>
 		public int Level { get; set; }
 		/// <summary>
@@ -82,12 +82,22 @@ namespace Fall2020_CSC403_Project.code
 			Level++;
 			MaxHealth = Level * HealthPerLevel;
         }
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
 		public void AlterHealthPerLevel(int value)
         {
 			HealthPerLevel += value;
 			MaxHealth = Level * HealthPerLevel;
 		}
-		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		public void AlterDefense(int value)
+        {
+			Defense += value;
+        }
 	}
 }

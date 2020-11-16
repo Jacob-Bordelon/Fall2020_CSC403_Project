@@ -101,6 +101,8 @@ namespace Fall2020_CSC403_Project
                 if (enemy.Color == Color.Red)
                 {
                     player.PlayerInventory.InsertEntry(new Key(), 1);
+                    player.PlayerInventory.InsertEntry(new Potion(), 2);
+                    player.CharacterTemplate.LevelUp();
                 }
                 Enemy.num--;
                 instance = null;
@@ -113,15 +115,27 @@ namespace Fall2020_CSC403_Project
                 }
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount"></param>
         private void EnemyDamage(int amount)
         {
-            enemy.AlterHealth(amount);
+            if (amount + enemy.CharacterTemplate.Defense < 0)
+            { 
+                enemy.AlterHealth(amount + enemy.CharacterTemplate.Defense); 
+            }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount"></param>
         private void PlayerDamage(int amount)
         {
-            player.AlterHealth(amount);
+            if (amount + player.CharacterTemplate.Defense < 0)
+            {
+                player.AlterHealth(amount + player.CharacterTemplate.Defense);
+            }
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)
