@@ -39,9 +39,9 @@ namespace Fall2020_CSC403_Project
             player.PlayerInventory.InsertEntry(new Potion(), 2);
             player.PlayerInventory.InsertEntry(new StrengthIncrease(), 2);
             player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
+            player.PlayerInventory.InsertEntry(new DefenseIncrease(), 2);
+            player.PlayerInventory.InsertEntry(new MaxHP(), 2);
 
-            // Examples of how to use an item, and how to withdraw and item to use
-            //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
             //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
 
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
