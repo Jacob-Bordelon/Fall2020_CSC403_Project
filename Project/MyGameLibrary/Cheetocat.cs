@@ -2,9 +2,14 @@
 
 namespace Fall2020_CSC403_Project.code
 {
-    //The Cheetocat Template
+    /// <summary>
+    /// The Cheetocat Template
+    /// </summary>
     public class Cheetocat : Template
     {
+        /// <summary>
+        /// Constructor for the Cheetocat Character Template
+        /// </summary>
         public Cheetocat()
         {
             Strength = 20;
@@ -16,21 +21,34 @@ namespace Fall2020_CSC403_Project.code
             TemplateDescription = "The CheetoCat is an extremely OP Template that can obliterate all enemies.";
 
         }
-        public override int firstAttack()
+        /// <summary>
+		/// The attack CheetoCat uses at first level
+        /// 1 in 5 critical chance for doubble damage
+		/// </summary>
+		/// <returns>a low ammount of damage done</returns>
+        public override int FirstAttack()
         {
             int damage = (20 * Strength);
             if (r.Next(1, 5) == 5) { damage = 2 * damage; }
             return damage;
         }
-
-        public override int seccondAttack()
+        /// <summary>
+		/// The attack CheetoCat uses at seccond level
+        /// 1 in 5 critical chance for doubble damage
+		/// </summary>
+		/// <returns>a medium ammount of damage done</returns>
+        public override int SeccondAttack()
         {
             int damage = (40 * Strength);
             if (r.Next(1, 5) == 5) { damage = 2 * damage; }
             return damage;
         }
-
-        public override int thirdAttack()
+        /// <summary>
+		/// The attack CheetoCat uses at third level
+        /// 1 in 5 critical chance for doubble damage
+		/// </summary>
+		/// <returns>a high ammount of damage done</returns>
+        public override int ThirdAttack()
         {
             int damage = (80 * Strength);
             if (r.Next(1, 5) == 5) { damage = 2 * damage; }

@@ -22,7 +22,6 @@ namespace Fall2020_CSC403_Project.code
         /// This is the Template for a BattleCharacter
         /// </summary>
         public Template CharacterTemplate { get; set; }
-
         /// <summary>
         /// sends the calculated damage to the frmBattle
         /// </summary>
@@ -48,13 +47,13 @@ namespace Fall2020_CSC403_Project.code
             switch (CharacterTemplate.Level)
             {
                 case 1:
-                    damage = CharacterTemplate.firstAttack();
+                    damage = CharacterTemplate.FirstAttack();
                     break;
                 case 2:
-                    damage = CharacterTemplate.seccondAttack();
+                    damage = CharacterTemplate.SeccondAttack();
                     break;
                 case 3:
-                    damage = CharacterTemplate.thirdAttack();
+                    damage = CharacterTemplate.ThirdAttack();
                     break;
                 default:
                     damage = 0;
@@ -62,12 +61,36 @@ namespace Fall2020_CSC403_Project.code
             }
             AttackEvent((int)(amount * damage));
         }
-
+        /// <summary>
+        /// Sets the level of a Character [1,3]
+        /// </summary>
+        /// <param name="level">the desired level of the character [1,3]</param>
         public void SetLevel(int level)
         {
-            CharacterTemplate.Level = level;
+            switch (level)
+            {
+                case 1:
+                    CharacterTemplate.Level = 1;
+                    CharacterTemplate.MaxHealth = CharacterTemplate.Level * CharacterTemplate.HealthPerLevel;
+                    break;
+                case 2:
+                    CharacterTemplate.Level = 2;
+                    CharacterTemplate.MaxHealth = CharacterTemplate.Level * CharacterTemplate.HealthPerLevel;
+                    break;
+                case 3:
+                    CharacterTemplate.Level = 3;
+                    CharacterTemplate.MaxHealth = CharacterTemplate.Level * CharacterTemplate.HealthPerLevel;
+                    break;
+                default:
+                    CharacterTemplate.Level = 1;
+                    CharacterTemplate.MaxHealth = CharacterTemplate.Level * CharacterTemplate.HealthPerLevel;
+                    break;
+            }
         }
-        //Adds or subtracts from the health pool bounded by MaxHealth and zero
+        /// <summary>
+        /// Adds or subtracts from the health pool bounded by MaxHealth and zero
+        /// </summary>
+        /// <param name="amount">the ammount to change the health</param>
         public void AlterHealth(int amount)
         {
             int hp = Health += amount;
@@ -84,17 +107,25 @@ namespace Fall2020_CSC403_Project.code
                 Health = CharacterTemplate.MaxHealth;
             }
         }
-
+        /// <summary>
+        /// Changes the Characters Max Health by the input ammount
+        /// </summary>
+        /// <param name="amount">change the characters Max Health by this ammount</param>
         public void AlterMAXHealth(int amount)
         {
             CharacterTemplate.MaxHealth += amount;
         }
-
+        /// <summary>
+        ///  Changes the Characters Strength by the input ammount
+        /// </summary>
+        /// <param name="amount"></param>
         public void AlterStrength(int amount)
         {
             CharacterTemplate.Strength += amount;
         }
-
+        /// <summary>
+        /// Sets the value of health to the Max Health of the Character
+        /// </summary>
         public void SetHPValues()
         {
             Health = CharacterTemplate.MaxHealth;

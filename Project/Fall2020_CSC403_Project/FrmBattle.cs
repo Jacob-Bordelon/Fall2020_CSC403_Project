@@ -116,22 +116,28 @@ namespace Fall2020_CSC403_Project
             }
         }
         /// <summary>
-        /// 
+        /// The ammount of damage an enemy takes
+        /// Thsi function can be reduced to 0 by an enemies defense
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="amount">initial ammount of damage incoming, should be negitive</param>
         private void EnemyDamage(int amount)
         {
+            //check if the defense is greater than the ammount of damage
             if (amount + enemy.CharacterTemplate.Defense < 0)
             { 
+                //decrement the health of the enemy by the ammount of damage
+                //determined by the defense
                 enemy.AlterHealth(amount + enemy.CharacterTemplate.Defense); 
             }
         }
         /// <summary>
-        /// 
+        ///  The ammount of damage an enemy takes
+        /// Thsi function can be reduced to 0 by an enemies defense
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="amount">initial ammount of damage incoming, should be negitive</param>
         private void PlayerDamage(int amount)
         {
+            //check if the defense is greater than the ammount of damage
             if (amount + player.CharacterTemplate.Defense < 0)
             {
                 player.AlterHealth(amount + player.CharacterTemplate.Defense);
