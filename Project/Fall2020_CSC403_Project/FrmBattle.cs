@@ -63,8 +63,8 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateHealthBars()
         {
-            float playerHealthPer = player.Health / (float)player.MaxHealth;
-            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            float playerHealthPer = player.Health / (float)player.CharacterTemplate.MaxHealth;
+            float enemyHealthPer = enemy.Health / (float)enemy.CharacterTemplate.MaxHealth;
 
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);

@@ -17,10 +17,7 @@ namespace Fall2020_CSC403_Project.code
         /// This is the current health for a BattleCharacter
         /// </summary>
         public int Health { get; private set; }
-        /// <summary>
-        /// This is the Maximum health for a BattleCharacter
-        /// </summary>
-        public int MaxHealth { get; private set; }
+       
         /// <summary>
         /// This is the Template for a BattleCharacter
         /// </summary>
@@ -34,8 +31,7 @@ namespace Fall2020_CSC403_Project.code
         public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
         {
             CharacterTemplate = new EnemyTemplate();
-            MaxHealth = CharacterTemplate.MaxHealth;
-            Health = MaxHealth;
+            SetHPValues();
         }
 
         //Returns the ammount of damage done by an attack
@@ -72,24 +68,29 @@ namespace Fall2020_CSC403_Project.code
             {
                 Health = 0;
             }
-            else if (hp <= MaxHealth)
+            else if (hp <= CharacterTemplate.MaxHealth)
             {
                 Health = hp;
             }
-            else if (hp > MaxHealth)
+            else if (hp > CharacterTemplate.MaxHealth)
             {
-                Health = MaxHealth;
+                Health = CharacterTemplate.MaxHealth;
             }
         }
 
         public void AlterMAXHealth(int amount)
         {
-            MaxHealth += amount;
+            CharacterTemplate.MaxHealth += amount;
         }
 
         public void AlterStrength(int amount)
         {
             CharacterTemplate.Strength += amount;
+        }
+
+        public void SetHPValues()
+        {
+            Health = CharacterTemplate.MaxHealth;
         }
     }
 }

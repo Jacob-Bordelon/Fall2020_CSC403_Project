@@ -33,6 +33,7 @@ namespace Fall2020_CSC403_Project
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             //Andrew Hall Player Template Selector
             player.CharacterTemplate = MainMenu.CharacterTemplate;
+            player.SetHPValues();
 
             // Starting items for player
             player.PlayerInventory.InsertEntry(new Potion(), 2);

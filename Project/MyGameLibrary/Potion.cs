@@ -22,7 +22,7 @@ namespace Fall2020_CSC403_Project.code
         public override int Use()
         {
             int returnVal = -1;
-            if (Game.player.Health < Game.player.MaxHealth)
+            if (Game.player.Health < Game.player.CharacterTemplate.MaxHealth)
             {
                 Game.player.AlterHealth(this.HPAmount);
                 returnVal = 0;

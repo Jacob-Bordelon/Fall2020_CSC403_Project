@@ -6,23 +6,42 @@ namespace Fall2020_CSC403_Project.code
 	 */
     public abstract class Template
     {
-		//the strenght represents the base damage a character puts out per level
-        public int Strength { get; set; }
-
+		/// <summary>
+		/// the strenght represents the base damage a character puts out per level
+		/// </summary>
+		public int Strength { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
 		public int HealthPerLevel { get; set; }
 
-		//the MaxHealth is the maximum ammount of health the character can have
-        public int MaxHealth { get; set; }
-
+		/// <summary>
+		/// the MaxHealth is the maximum ammount of health the character can have
+		/// </summary>
+		public int MaxHealth { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
 		public int Level { get; set; }
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public int Defense { get; set; }
-
+		/// <summary>
+		/// 
+		/// </summary>
         public String TemplateName { get; set; }
-
+		/// <summary>
+		/// 
+		/// </summary>
         public String TemplateDescription { get; set; }
-
+		/// <summary>
+		/// 
+		/// </summary>
 		internal Random r = new Random();
+		/// <summary>
+		/// 
+		/// </summary>
 		public Template()
 		{
 			Strength = 1;
@@ -40,22 +59,35 @@ namespace Fall2020_CSC403_Project.code
 			TemplateDescription = "default description";
 
 		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public abstract int firstAttack();
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public abstract int seccondAttack();
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public abstract int thirdAttack();
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public void LevelUp()
         {
 			Level++;
 			MaxHealth = Level * HealthPerLevel;
         }
 
-		public void StrengthUp(int value)
+		public void AlterHealthPerLevel(int value)
         {
-			Strength += value;
-        }
+			HealthPerLevel += value;
+			MaxHealth = Level * HealthPerLevel;
+		}
+		
 	}
 }

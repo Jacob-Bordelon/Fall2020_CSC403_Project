@@ -15,16 +15,18 @@ namespace Fall2020_CSC403_Project.code
         {
             ID = 1003;
             Name = "MaxHPUp";
-            HPAmount = 10;
+            HPAmount = 5;
             MaxNumberOfItems = 20;
         }
         // Configure How this method is used
         public override int Use()
         {
             int returnVal = -1;
-            if (Game.player.MaxHealth < 1000)
+            if (Game.player.CharacterTemplate.MaxHealth < 1000)
             {
-                Game.player.AlterMAXHealth(this.HPAmount);
+                Game.player.CharacterTemplate.AlterHealthPerLevel(this.HPAmount);
+                Game.player.AlterHealth(this.HPAmount);
+
                 returnVal = 0;
             }
             return returnVal;
