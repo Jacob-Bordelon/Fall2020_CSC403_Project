@@ -21,7 +21,13 @@ namespace Fall2020_CSC403_Project.code
         // Configure How this method is used
         public override int Use()
         {
-            return -1;
+            int returnVal = -1;
+            if (Game.player.CharacterTemplate.Strength < 1000)
+            {
+                Game.player.AlterStrength(this.STRAmount);
+                returnVal = 0;
+            }
+            return returnVal;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
-namespace Fall2020_CSC403_Project.code 
+namespace Fall2020_CSC403_Project.code
 {
     /// <summary>
     /// This is the class for a BattleCharacter
@@ -80,6 +80,16 @@ namespace Fall2020_CSC403_Project.code
             {
                 Health = MaxHealth;
             }
+        }
+
+        public void AlterMAXHealth(int amount)
+        {
+            MaxHealth += amount;
+        }
+
+        public void AlterStrength(int amount)
+        {
+            CharacterTemplate.Strength += amount;
         }
     }
 }
