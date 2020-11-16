@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code
 		/// </summary>
 		public int Strength { get; set; }
 		/// <summary>
-		/// 
+		/// the ammount of health you have per level
 		/// </summary>
 		public int HealthPerLevel { get; set; }
 		/// <summary>
