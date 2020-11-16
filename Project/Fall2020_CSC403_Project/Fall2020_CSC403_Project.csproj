@@ -157,6 +157,8 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Healing_potion_icon.png" />
+    <None Include="Resources\defense-pngrepo-com.png" />
     <None Include="data\raw images\YouLose.jpg" />
     <None Include="data\raw images\YouWin.jpg" />
     <None Include="Resources\applejacks.png" />
