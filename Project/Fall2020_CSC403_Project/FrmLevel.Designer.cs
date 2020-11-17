@@ -33,6 +33,7 @@ namespace Fall2020_CSC403_Project
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.door1 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -50,6 +51,7 @@ namespace Fall2020_CSC403_Project
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.door1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -92,6 +94,17 @@ namespace Fall2020_CSC403_Project
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // door1
+            // 
+            this.door1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.door1.Image = ((System.Drawing.Image)(resources.GetObject("door1.Image")));
+            this.door1.Location = new System.Drawing.Point(954, 531);
+            this.door1.Name = "door1";
+            this.door1.Size = new System.Drawing.Size(86, 116);
+            this.door1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.door1.TabIndex = 18;
+            this.door1.TabStop = false;
             // 
             // picWall11
             // 
@@ -286,6 +299,7 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.door1);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -312,6 +326,7 @@ namespace Fall2020_CSC403_Project
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.door1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -357,6 +372,7 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.PictureBox picWall2;
         private System.Windows.Forms.PictureBox picWall11;
         public System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.PictureBox door1;
     }
 }
 

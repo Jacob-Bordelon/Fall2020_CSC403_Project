@@ -2,6 +2,7 @@ using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project
 {
@@ -18,6 +19,7 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private static InventoryMenu InventoryM;
+        private Character Door;
 
         public FrmLevel()
         {
@@ -64,6 +66,9 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
+            var door = Controls.Find("door1", true)[0] as PictureBox;
+            Door = new Character(CreatePosition(door), CreateCollider(door, PADDING));
+
             Game.player = player;
             timeBegin = DateTime.Now;
         }
@@ -89,20 +94,39 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+
+            // Play music 
+            SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
+            simpleSound.Play();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
-            // move player
+            // move player 
             player.Move();
 
-            // check collision with walls
+            // check collision with walls 
             if (HitAWall(player))
             {
                 player.MoveBack();
             }
 
-            // check collision with enemies
+            // check if the door and player collides and levels the character and goes to next level 
+            if (HitADoor(player, Door))
+            {
+                player.MoveBack();
+                if (player.PlayerInventory.QuantityItem(1000) >= 1)
+                {
+                    Game.player.CharacterTemplate.LevelUp();
+                    this.Close();
+                    var lv2 = new FrmLevel2();
+                    lv2.Show();
+
+                }
+
+            }
+
+            // check collision with enemies 
             if (HitAChar(player, enemyPoisonPacket))
             {
                 Fight(enemyPoisonPacket);
@@ -116,8 +140,13 @@ namespace Fall2020_CSC403_Project
                 Fight(bossKoolaid);
             }
 
-            // update player's picture box
+            // update player's picture box 
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+        }
+
+        private bool HitADoor(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
         }
 
         private bool HitAWall(Character c)
