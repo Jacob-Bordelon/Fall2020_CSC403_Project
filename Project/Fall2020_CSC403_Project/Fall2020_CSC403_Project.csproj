@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmLevel2.cs" />
     <Compile Include="WinorFailScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +159,7 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\door.jpg" />
     <None Include="Resources\Healing_potion_icon.png" />
     <None Include="Resources\defense-pngrepo-com.png" />
     <None Include="data\raw images\YouLose.jpg" />

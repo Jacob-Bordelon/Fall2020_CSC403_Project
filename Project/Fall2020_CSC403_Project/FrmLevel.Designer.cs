@@ -130,9 +130,9 @@ namespace Fall2020_CSC403_Project
 			this.picdoor.BackColor = System.Drawing.Color.Transparent;
 			this.picdoor.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.door;
 			this.picdoor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.picdoor.Location = new System.Drawing.Point(1661, 830);
+			this.picdoor.Location = new System.Drawing.Point(1577, 740);
 			this.picdoor.Name = "picdoor";
-			this.picdoor.Size = new System.Drawing.Size(93, 150);
+			this.picdoor.Size = new System.Drawing.Size(177, 240);
 			this.picdoor.TabIndex = 18;
 			this.picdoor.TabStop = false;
 			// 

@@ -103,7 +103,7 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
-            // check if the door and player collides
+            // check if the door and player collides and levels the character and goes to next level
             if (HitADoor(player, Door))
 			{
                 Debug.WriteLine("I hit a door");
@@ -111,7 +111,6 @@ namespace Fall2020_CSC403_Project
                 if(player.PlayerInventory.QuantityItem(1000)>=1)
 				{
                     Game.player.CharacterTemplate.LevelUp();
-
 				}
 
 			}
