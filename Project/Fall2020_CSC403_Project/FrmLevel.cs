@@ -108,6 +108,11 @@ namespace Fall2020_CSC403_Project
 			{
                 Debug.WriteLine("I hit a door");
                 player.MoveBack();
+                if(player.PlayerInventory.QuantityItem(1000)>=1)
+				{
+                    Game.player.CharacterTemplate.LevelUp();
+
+				}
 
 			}
 

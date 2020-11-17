@@ -63,8 +63,8 @@ namespace Fall2020_CSC403_Project
 
         private void UpdateHealthBars()
         {
-            float playerHealthPer = player.Health / (float)player.MaxHealth;
-            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+            float playerHealthPer = player.Health / (float)player.CharacterTemplate.MaxHealth;
+            float enemyHealthPer = enemy.Health / (float)enemy.CharacterTemplate.MaxHealth;
 
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
@@ -87,8 +87,10 @@ namespace Fall2020_CSC403_Project
             {
                 instance = null;
                 this.Close();
+                WinorFailScreen FailureScreen = new WinorFailScreen("loss");
+                FailureScreen.Show();
 
-                //  TODO: Put failure screen here
+
             }
             else if (enemy.Health <= 0)
             {
@@ -99,20 +101,47 @@ namespace Fall2020_CSC403_Project
                 if (enemy.Color == Color.Red)
                 {
                     player.PlayerInventory.InsertEntry(new Key(), 1);
+                    player.PlayerInventory.InsertEntry(new Potion(), 2);
+                    player.CharacterTemplate.LevelUp();
                 }
+                Enemy.num--;
                 instance = null;
                 this.Close();
+
+                if(Enemy.num <= 0)
+                {
+                    WinorFailScreen VictoryScreen = new WinorFailScreen("win");
+                    VictoryScreen.Show();
+                }
             }
         }
-
+        /// <summary>
+        /// The ammount of damage an enemy takes
+        /// Thsi function can be reduced to 0 by an enemies defense
+        /// </summary>
+        /// <param name="amount">initial ammount of damage incoming, should be negitive</param>
         private void EnemyDamage(int amount)
         {
-            enemy.AlterHealth(amount);
+            //check if the defense is greater than the ammount of damage
+            if (amount + enemy.CharacterTemplate.Defense < 0)
+            { 
+                //decrement the health of the enemy by the ammount of damage
+                //determined by the defense
+                enemy.AlterHealth(amount + enemy.CharacterTemplate.Defense); 
+            }
         }
-
+        /// <summary>
+        ///  The ammount of damage an enemy takes
+        /// Thsi function can be reduced to 0 by an enemies defense
+        /// </summary>
+        /// <param name="amount">initial ammount of damage incoming, should be negitive</param>
         private void PlayerDamage(int amount)
         {
-            player.AlterHealth(amount);
+            //check if the defense is greater than the ammount of damage
+            if (amount + player.CharacterTemplate.Defense < 0)
+            {
+                player.AlterHealth(amount + player.CharacterTemplate.Defense);
+            }
         }
 
         private void tmrFinalBattle_Tick(object sender, EventArgs e)

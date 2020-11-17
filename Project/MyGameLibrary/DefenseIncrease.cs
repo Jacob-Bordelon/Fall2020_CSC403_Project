@@ -7,27 +7,28 @@ using System.Drawing;
 
 namespace Fall2020_CSC403_Project.code
 {
-    public class StrengthIncrease : Item
+    public class DefenseIncrease : Item
     {
-        public int STRAmount { get; private set; }
+        public int DEFAmount { get; private set; }
         public Image Img { get; set; }
-        public StrengthIncrease()
+        public DefenseIncrease()
         {
-            ID = 1002;
-            Name = "StrengthUp";
-            STRAmount = 2;
+            ID = 1004;
+            Name = "DefenseUP";
+            DEFAmount = 1;
             MaxNumberOfItems = 20;
         }
         // Configure How this method is used
         public override int Use()
         {
             int returnVal = -1;
-            if (Game.player.CharacterTemplate.Strength < 1000)
+            if (Game.player.CharacterTemplate.Defense < 1000)
             {
-                Game.player.AlterStrength(this.STRAmount);
+                Game.player.CharacterTemplate.AlterDefense(this.DEFAmount);
                 returnVal = 0;
             }
             return returnVal;
         }
     }
 }
+

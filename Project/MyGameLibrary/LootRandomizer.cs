@@ -10,9 +10,12 @@ namespace Fall2020_CSC403_Project.code
     public class LootRandomizer {
         private readonly Random random = new Random();
         // Type of loot items to randomize with weights (DropRate)
-        private readonly Loot potion = new Loot(new Potion(), 50);
+        private readonly Loot potion = new Loot(new Potion(), 40);
         private readonly Loot strength = new Loot(new StrengthIncrease(), 30);
-        private readonly Loot maxHP = new Loot(new MaxHPIncrease(), 20);
+        private readonly Loot maxHPIncrease = new Loot(new MaxHPIncrease(), 10);
+        private readonly Loot defense = new Loot(new DefenseIncrease(), 10);
+        private readonly Loot maxHP = new Loot(new DefenseIncrease(), 10);
+
         private int randomNumber;
         private Item randomItem;
         public LootRandomizer() {
@@ -20,7 +23,7 @@ namespace Fall2020_CSC403_Project.code
         // Goes through array of loot objects 
         // It will through a random number between 0 and 100, and compares it to the droprate
         public Item GetRandomItem() {
-            Loot[] loot = { potion, strength, maxHP };
+            Loot[] loot = { potion, strength, maxHPIncrease };
             randomNumber = random.Next(0, 100);
             foreach(Loot option in loot) {
                 if(randomNumber <= option.LootDropRate) {

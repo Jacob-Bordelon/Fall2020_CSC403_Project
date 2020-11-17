@@ -8,15 +8,27 @@ using Fall2020_CSC403_Project.Properties;
 using Fall2020_CSC403_Project.code;
 
 namespace Fall2020_CSC403_Project
-{
+{   
+    /// <summary>
+    /// Loads an inventory menu filled with the players items 
+    /// </summary>
     public partial class InventoryMenu : Form
     {
         private Inventory PlayerInventory = Game.player.PlayerInventory;
+
+        /// <summary>
+        /// Initialize a inventory menu
+        /// </summary>
         public InventoryMenu()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Load the inventory menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InventoryMenu_Load(object sender, EventArgs e)
         {
             this.UpdateHealthBars();
@@ -48,6 +60,11 @@ namespace Fall2020_CSC403_Project
             }
     
         }
+        /// <summary>
+        /// Close the menu when key is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Inventory_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -64,7 +81,11 @@ namespace Fall2020_CSC403_Project
 
         }
         
-        // Highlight cells
+        /// <summary>
+        /// Highights the picture boxes the player is hovering over.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HighLight(object sender, EventArgs e)
         {
             PictureBox picBox = sender as PictureBox;
@@ -73,7 +94,11 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        // De-Highlight cells
+        /// <summary>
+        /// De-highlight hovered over cells
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeHighlight(object sender, EventArgs e)
         {
             PictureBox picBox = sender as PictureBox;
@@ -81,14 +106,21 @@ namespace Fall2020_CSC403_Project
             picBox.Refresh();
         }
 
-        // Prevent the player from leaving the inventory menu by clicking to a new page
+        /// <summary>
+        /// Prevent the player from leaving the inventory menu by clicking off the menu
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnLostFocus(EventArgs e)
         {
             base.OnLostFocus(e);
             this.Focus();
         }
-        
-        // Consume Items when player double clicks them
+
+        /// <summary>
+        /// Consume Items when player double clicks the appropiate box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Consume(object sender, EventArgs e)
         {
             
@@ -115,15 +147,20 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        // Update stats bar at top
+        /// <summary>
+        /// Update status bar at the top
+        /// </summary>
+   
         private void UpdateHealthBars()
         {
             Player player = Game.player;
-            float playerHealthPer = player.Health / (float)player.MaxHealth;         
+            float playerHealthPer = player.Health / (float)player.CharacterTemplate.MaxHealth;         
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
             lblPlayerHealthFull.Text = player.Health.ToString();
- 
+
+            // TODO: Add Strength bar and configure its properties
+
         }
     }
 }

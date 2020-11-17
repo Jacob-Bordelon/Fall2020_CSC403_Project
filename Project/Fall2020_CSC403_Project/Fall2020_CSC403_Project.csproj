@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Fall2020_CSC403_Project.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,12 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLevel2.Designer.cs">
+    <Compile Include="WinorFailScreen.cs">
       <SubType>Form</SubType>
-      <DependentUpon>FrmLevel2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLevel2.cs">
-      <SubType>Form</SubType>
+    <Compile Include="WinorFailScreen.Designer.cs">
+      <DependentUpon>WinorFailScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
@@ -76,14 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="WinorFailScreen.resx">
+      <DependentUpon>WinorFailScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLevel2.resx">
-      <DependentUpon>FrmLevel2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryMenu.resx">
       <DependentUpon>InventoryMenu.cs</DependentUpon>
@@ -158,8 +158,10 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-    <None Include="Resources\door.jpg" />
+    <None Include="Resources\Healing_potion_icon.png" />
+    <None Include="Resources\defense-pngrepo-com.png" />
+    <None Include="data\raw images\YouLose.jpg" />
+    <None Include="data\raw images\YouWin.jpg" />
     <None Include="Resources\applejacks.png" />
     <Content Include="data\item_key.png" />
     <None Include="data\item_maxhp.png" />
