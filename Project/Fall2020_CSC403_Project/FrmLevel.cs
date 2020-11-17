@@ -36,8 +36,7 @@ namespace Fall2020_CSC403_Project
 
             // Starting items for player
             player.PlayerInventory.InsertEntry(new Potion(), 2);
-            player.PlayerInventory.InsertEntry(new StrengthIncrease(), 2);
-            player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
+            
 
             // Examples of how to use an item, and how to withdraw and item to use
             //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);

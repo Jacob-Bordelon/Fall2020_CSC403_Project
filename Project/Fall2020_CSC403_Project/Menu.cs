@@ -3,10 +3,18 @@ using System.Drawing;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
 
+// compile with: -doc:Mainmenu.xml
+
 namespace Fall2020_CSC403_Project
 {
+    /// <summary>
+    /// MainMenu form to select a character and start the game
+    /// </summary>
     class MainMenu : Form
     {
+        /// <summary>
+        /// Static declaration so the game knows which Template or 'in-game class' the player will be;
+        /// </summary>
         public static Template CharacterTemplate { get; set; }
         public MainMenu()
         {
@@ -21,6 +29,9 @@ namespace Fall2020_CSC403_Project
 
         public static Image Character{get;set;}
 
+        /// <summary>
+        /// Initialize all the components (little unsual for this to be in the source code
+        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
@@ -107,28 +118,56 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
         }
-        //selects Mr Peanut The Fighter as the playable character ADH
+        /// <summary>
+        /// When button 1 is pressed, 
+        ///     select Mr Peanut image 
+        ///     assign the Fighter template
+        ///     start the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Character = this.button1.Image;
             CharacterTemplate = new Fighter(); 
             start();
         }
-        //selects Mr Cinnimon the Wizard as the playable character ADH
+        /// <summary>
+        ///         When button 2 is pressed
+        ///         select Mr Cinnimon image
+        ///         assign the Wizard template
+        ///         start the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Character = this.button2.Image;
             CharacterTemplate = new Wizard();
             start();
         }
-        //selects Mr M&M the Rogue as the playable character ADH
+        /// <summary>
+        /// When button 3 is pressed 
+        ///         Select MnM image
+        ///         assign the rouge template
+        ///         start the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             Character = this.button3.Image;
             CharacterTemplate = new Rogue();
             start();
         }
-        //selects Mr Chester the CheetoCat as the playable character ADH
+        /// <summary>
+        /// When button 4 is pressed 
+        ///         Select Chester Cheetah image
+        ///         assign the CheetoCat template
+        ///         start the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             Character = this.button4.Image;
@@ -136,6 +175,13 @@ namespace Fall2020_CSC403_Project
             start();
         }
 
+        /// <summary>
+        /// Assign the player image in FrmLevel to selected character image
+        /// Assign the player image in FrmBattle to selected character image
+        /// Create a new Frmlevel instance 
+        /// Close the MainMenu
+        /// Start the game
+        /// </summary>
         private void start()
         {
             FrmLevel.playerImage = Character;
