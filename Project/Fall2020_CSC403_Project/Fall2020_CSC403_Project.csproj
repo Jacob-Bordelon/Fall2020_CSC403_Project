@@ -47,12 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLevel2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLevel2.designer.cs">
-      <DependentUpon>FrmLevel2.cs</DependentUpon>
-    </Compile>
+    <Compile Include="FrmLevel2.cs" />
     <Compile Include="WinorFailScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,9 +77,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLevel2.resx">
-      <DependentUpon>FrmLevel2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinorFailScreen.resx">
       <DependentUpon>WinorFailScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +159,7 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\door.jpg" />
     <None Include="Resources\Healing_potion_icon.png" />
     <None Include="Resources\defense-pngrepo-com.png" />
     <None Include="data\raw images\YouLose.jpg" />
