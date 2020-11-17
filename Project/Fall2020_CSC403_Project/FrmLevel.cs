@@ -1,5 +1,7 @@
 using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.Properties;
 using System;
+using System.Media;
 using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -90,6 +92,10 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+
+            //play music
+            SoundPlayer simpleSound = new SoundPlayer(Resources.e1m1);
+            simpleSound.Play();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -111,6 +117,7 @@ namespace Fall2020_CSC403_Project
                 if(player.PlayerInventory.QuantityItem(1000)>=1)
 				{
                     Game.player.CharacterTemplate.LevelUp();
+                   
 				}
 
 			}
