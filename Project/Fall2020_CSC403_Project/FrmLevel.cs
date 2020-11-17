@@ -1,6 +1,7 @@
 using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -14,6 +15,7 @@ namespace Fall2020_CSC403_Project
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Character[] walls;
+        private Character Door;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -28,7 +30,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 13;
+            const int NUM_WALLS = 28;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             //Andrew Hall Player Template Selector
@@ -46,6 +48,7 @@ namespace Fall2020_CSC403_Project
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            Door = new Character(CreatePosition(picdoor), CreateCollider(picdoor, PADDING));
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -100,6 +103,14 @@ namespace Fall2020_CSC403_Project
                 player.MoveBack();
             }
 
+            // check if the door and player collides
+            if (HitADoor(player, Door))
+			{
+                Debug.WriteLine("I hit a door");
+                player.MoveBack();
+
+			}
+
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
             {
@@ -130,6 +141,11 @@ namespace Fall2020_CSC403_Project
                 }
             }
             return hitAWall;
+        }
+
+        private bool HitADoor(Character you, Character Door)
+        {
+            return you.Collider.Intersects(Door.Collider);
         }
 
         private bool HitAChar(Character you, Character other)
@@ -197,5 +213,15 @@ namespace Fall2020_CSC403_Project
         {
 
         }
-    }
+
+		private void pictureBox3_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void pictureBox9_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
