@@ -24,7 +24,7 @@ namespace Fall2020_CSC403_Project.code
         {
             if (InventoryList.Count < MaxNumberSlots)
             {
-                var nextitem = item.Name;
+                
                 if (InventoryList.Exists(x => (x.EntryItem.ID == item.ID)))
                 {
                     foreach (Entry entry in InventoryList.ToList())

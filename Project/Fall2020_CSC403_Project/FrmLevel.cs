@@ -34,8 +34,8 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
             this.picPlayer.BackgroundImage = playerImage;
             // Play music 
-            //SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
-            //simpleSound.Play();
+            SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
+            simpleSound.Play();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -52,11 +52,7 @@ namespace Fall2020_CSC403_Project
             player.PlayerInventory.InsertEntry(new Potion(), 2);
             player.PlayerInventory.InsertEntry(new StrengthIncrease(), 2);
             player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
-            player.PlayerInventory.InsertEntry(new DefenseIncrease(), 2);
-            player.PlayerInventory.InsertEntry(new MaxHP(), 2);
-            player.PlayerInventory.InsertEntry(new Key(), 1);
-
-            //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
+            
 
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
@@ -130,8 +126,8 @@ namespace Fall2020_CSC403_Project
                     Game.player.MoveBack();
                     this.Hide();
                     var gameForm = new FrmLevelTwo();
-                    //gameForm.Closed += (s, args) => this.Close();
                     gameForm.Show();
+                    this.Dispose();
                     
                 }
 

@@ -103,7 +103,6 @@ namespace Fall2020_CSC403_Project
                 // Add a key to the invetory
                 if (enemy.Color == Color.Red)
                 {
-                    player.PlayerInventory.InsertEntry(new Key(), 1);
                     player.PlayerInventory.InsertEntry(new Potion(), 2);
                     player.CharacterTemplate.LevelUp();
                 }
@@ -112,14 +111,17 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 this.Close();
 
-                
-
                 if(Enemy.num <= 0)
                 {
-                    WinorFailScreen VictoryScreen = new WinorFailScreen("win");
-                    VictoryScreen.Show();
+                    player.PlayerInventory.InsertEntry(new Key(), 1);
+                    Player.win++;
                 }
 
+                if(Player.win >= 2)
+                {
+                    var WinScreen = new WinorFailScreen("win");
+                    WinScreen.Show();
+                }
 
 
             }

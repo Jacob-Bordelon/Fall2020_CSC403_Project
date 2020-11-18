@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter 
     {
+
+    public static int win = 0;
+
     public Inventory PlayerInventory { get; set; }
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
             // Add an inventory to each player 
+            
             PlayerInventory = new Inventory();
     }
+
+    
   }
 }

@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
 {
+    /// <summary>
+    /// Level Two
+    /// </summary>
     public partial class FrmLevelTwo : Form
     {
         private Player player;
@@ -22,12 +25,22 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
         private static InventoryMenu InventoryM;
-        private Character Door;
+
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FrmLevelTwo()
         {
             InitializeComponent();
             this.picPlayer.BackgroundImage = playerImage;
         }
+
+        /// <summary>
+        /// Load Level Two
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void FrmLevelTwo_Load(object sender, EventArgs e)
         {
@@ -35,13 +48,9 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 4;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            //player.Position = CreatePosition(picPlayer);
 
-            // Setting inventory for player
             player.PlayerInventory = Game.player.PlayerInventory;
 
-
-            //Andrew Hall Player Template Selector
             player.CharacterTemplate = Game.player.CharacterTemplate; 
             player.SetHPValues();
 
@@ -74,6 +83,13 @@ namespace Fall2020_CSC403_Project
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
+
+        /// <summary>
+        /// Create Collider
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <param name="padding"></param>
+        /// <returns></returns>
         private Collider CreateCollider(PictureBox pic, int padding)
         {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
