@@ -32,7 +32,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevelTwo_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            //const int NUM_WALLS = 13;
+            const int NUM_WALLS = 4;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             //player.Position = CreatePosition(picPlayer);
@@ -42,10 +42,28 @@ namespace Fall2020_CSC403_Project
 
 
             //Andrew Hall Player Template Selector
-            player.CharacterTemplate = Game.player.CharacterTemplate; ;
+            player.CharacterTemplate = Game.player.CharacterTemplate; 
             player.SetHPValues();
 
+            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+            bossKoolaid.picbox = picBossKoolAid;
+            enemyPoisonPacket.picbox = picEnemyPoisonPacket;
+            enemyCheeto.picbox = picEnemyCheeto;
+
+            bossKoolaid.Color = Color.Brown;
+            bossKoolaid.CharacterTemplate.AlterDefense(2);
+            enemyPoisonPacket.Color = Color.Green;
+            enemyCheeto.Color = Color.FromArgb(255, 245, 161); ;
+
+            walls = new Character[NUM_WALLS];
+            for (int w = 0; w < NUM_WALLS; w++)
+            {
+                PictureBox pic = Controls.Find("picBush" + w.ToString(), true)[0] as PictureBox;
+                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+            }
 
             Game.player = player;
             timeBegin = DateTime.Now;
@@ -79,10 +97,68 @@ namespace Fall2020_CSC403_Project
             // move player 
             player.Move();
 
+            // check collision with walls 
+            if (HitAWall(player))
+            {
+                player.MoveBack();
+            }
+
+            // check collision with enemies 
+            if (HitAChar(player, enemyPoisonPacket))
+            {
+                Fight(enemyPoisonPacket);
+            }
+            
+            else if (HitAChar(player, enemyCheeto))
+            {
+                Fight(enemyCheeto);
+
+            }
+            if (HitAChar(player, bossKoolaid))
+            {
+                Fight(bossKoolaid);
+
+            }
+
             // update player's picture box 
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
-            private void FrmLevelTwo_KeyDown(object sender, KeyEventArgs e)
+
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
+
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
+
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
+            
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+            
+        }
+
+        private void FrmLevelTwo_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -136,9 +212,5 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
     }
 }

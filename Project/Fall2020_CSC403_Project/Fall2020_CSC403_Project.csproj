@@ -186,6 +186,8 @@
     <None Include="data\raw images\YouWin.jpg" />
     <None Include="Resources\applejacks.png" />
     <None Include="data\door.png" />
+    <Content Include="data\bush.png" />
+    <Content Include="data\bush2.png" />
     <Content Include="data\item_key.png" />
     <None Include="data\item_maxhp.png" />
     <Content Include="data\item_potion.png" />
