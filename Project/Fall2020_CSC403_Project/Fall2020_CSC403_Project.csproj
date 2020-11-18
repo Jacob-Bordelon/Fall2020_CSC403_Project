@@ -168,6 +168,8 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\raw images\item_fullhealth.png" />
+    <None Include="data\raw images\item_defense.png" />
     <None Include="Resources\e1m1.wav" />
     <None Include="Resources\Healing_potion_icon.png" />
     <None Include="Resources\defense-pngrepo-com.png" />

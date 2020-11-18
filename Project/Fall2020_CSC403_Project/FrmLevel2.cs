@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project
         private FrmBattle frmBattle;
         private static InventoryMenu InventoryM;
 
+
         public FrmLevel2()
         {
             InitializeComponent();
@@ -34,26 +35,17 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 27;
             const int Minion = 27;
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            //Andrew Hall Player Template Selector
-            player.CharacterTemplate = MainMenu.CharacterTemplate;
+            player = Game.player;
 
-            // Starting items for player
-            player.PlayerInventory.InsertEntry(new Potion(), 2);
-            player.PlayerInventory.InsertEntry(new StrengthIncrease(), 2);
-            player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
+      
 
-            // Examples of how to use an item, and how to withdraw and item to use
-            //player.AlterHealth(((Potion)player.PlayerInventory.WithdrawEntry(1001)).HPAmount);
-            //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
-
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket1), CreateCollider(picEnemyPoisonPacket1, PADDING));
+            //enemyPoisonPacket = new Enemy(CreatePosition(minion1), CreateCollider(minion1, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             Door = new Character(CreatePosition(picdoor), CreateCollider(picdoor, PADDING));
 
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-            enemyPoisonPacket.Img = picEnemyPoisonPacket1.BackgroundImage;
-            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            bossKoolaid.picbox = picBoss;
+            //enemyPoisonPacket.picbox = minion1;
+            enemyCheeto.picbox = picEnemyCheeto;
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
@@ -70,7 +62,7 @@ namespace Fall2020_CSC403_Project
             minion = new Character[Minion];
             for (int w = 0; w < Minion; w++)
             {
-                PictureBox pic = Controls.Find("picEnemyPoisonPacket" + w.ToString(), true)[0] as PictureBox;
+                PictureBox pic = Controls.Find("minion" + w.ToString(), true)[0] as PictureBox;
                 minion[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 

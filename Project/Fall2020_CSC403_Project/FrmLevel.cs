@@ -3,13 +3,18 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : Form
     {
         private Player player;
-        public static Image playerImage { get; set; }
+
+        /// <summary>
+        /// Global Reference for the current playerImage
+        /// </summary>
+        public static Image playerImage { get; set; } 
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -21,10 +26,16 @@ namespace Fall2020_CSC403_Project
         private static InventoryMenu InventoryM;
         private Character Door;
 
+        /// <summary>
+        /// Initalize Frm Level
+        /// </summary>
         public FrmLevel()
         {
             InitializeComponent();
             this.picPlayer.BackgroundImage = playerImage;
+            // Play music 
+            //SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
+            //simpleSound.Play();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -43,6 +54,7 @@ namespace Fall2020_CSC403_Project
             player.PlayerInventory.InsertEntry(new MaxHPIncrease(), 2);
             player.PlayerInventory.InsertEntry(new DefenseIncrease(), 2);
             player.PlayerInventory.InsertEntry(new MaxHP(), 2);
+            player.PlayerInventory.InsertEntry(new Key(), 1);
 
             //Key key = (Key)player.PlayerInventory.WithdrawEntry(1000);
 
@@ -50,9 +62,9 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            bossKoolaid.picbox = picBossKoolAid;
+            enemyPoisonPacket.picbox = picEnemyPoisonPacket;
+            enemyCheeto.picbox = picEnemyCheeto;
 
             bossKoolaid.Color = Color.Red;
             bossKoolaid.CharacterTemplate.AlterDefense(2);
@@ -94,10 +106,6 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
-
-            // Play music 
-            SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
-            simpleSound.Play();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -134,10 +142,12 @@ namespace Fall2020_CSC403_Project
             else if (HitAChar(player, enemyCheeto))
             {
                 Fight(enemyCheeto);
+                
             }
             if (HitAChar(player, bossKoolaid))
             {
                 Fight(bossKoolaid);
+
             }
 
             // update player's picture box 
@@ -172,6 +182,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
+
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
 
@@ -179,12 +190,14 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
+                // Move Left
                 case Keys.Left:
                     player.GoLeft();
                     break;
@@ -192,6 +205,7 @@ namespace Fall2020_CSC403_Project
                     player.GoLeft();
                     break;
 
+                // Move Right
                 case Keys.Right:
                     player.GoRight();
                     break;
@@ -199,6 +213,7 @@ namespace Fall2020_CSC403_Project
                     player.GoRight();
                     break;
 
+                // Move Up
                 case Keys.Up:
                     player.GoUp();
                     break;
@@ -206,6 +221,7 @@ namespace Fall2020_CSC403_Project
                     player.GoUp();
                     break;
 
+                // Move Down
                 case Keys.Down:
                     player.GoDown();
                     break;
@@ -213,11 +229,13 @@ namespace Fall2020_CSC403_Project
                     player.GoDown();
                     break;
 
+                //Open Inventory
                 case Keys.I:
                     InventoryM = new InventoryMenu();
                     InventoryM.Show();
                     break;
 
+                //Reset Inventory
                 default:
                     player.ResetMoveSpeed();
                     break;

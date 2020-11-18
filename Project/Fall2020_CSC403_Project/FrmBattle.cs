@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Fall2020_CSC403_Project
 {
@@ -94,8 +95,10 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
+                
                 // To add a random item after defeating an enemy
                 player.PlayerInventory.InsertEntry(loot.GetRandomItem(), 1);
+                
                 // Checks if enemy is a boss (Boss color is red). I recommend to add a function to the enemy: bool IsBoss()
                 // Add a key to the invetory
                 if (enemy.Color == Color.Red)
@@ -105,14 +108,20 @@ namespace Fall2020_CSC403_Project
                     player.CharacterTemplate.LevelUp();
                 }
                 Enemy.num--;
+
                 instance = null;
                 this.Close();
+
+                
 
                 if(Enemy.num <= 0)
                 {
                     WinorFailScreen VictoryScreen = new WinorFailScreen("win");
                     VictoryScreen.Show();
                 }
+
+
+
             }
         }
         /// <summary>

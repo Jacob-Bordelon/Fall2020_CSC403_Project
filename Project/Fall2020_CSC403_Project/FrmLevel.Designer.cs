@@ -99,7 +99,7 @@ namespace Fall2020_CSC403_Project
             // 
             this.door1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.door1.Image = ((System.Drawing.Image)(resources.GetObject("door1.Image")));
-            this.door1.Location = new System.Drawing.Point(954, 531);
+            this.door1.Location = new System.Drawing.Point(561, 117);
             this.door1.Name = "door1";
             this.door1.Size = new System.Drawing.Size(86, 116);
             this.door1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

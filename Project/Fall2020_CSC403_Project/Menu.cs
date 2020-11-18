@@ -188,7 +188,7 @@ namespace Fall2020_CSC403_Project
             FrmLevel2.playerImage = Character;
             FrmBattle.playerImage = Character;
             this.Hide();
-            var gameForm = new FrmLevel();
+            var gameForm = new FrmLevel2();
             gameForm.Closed += (s, args) => this.Close();
             gameForm.Show();
         }
