@@ -53,6 +53,12 @@
     <Compile Include="FrmLevel2.designer.cs">
       <DependentUpon>FrmLevel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevelTwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevelTwo.Designer.cs">
+      <DependentUpon>FrmLevelTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinorFailScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLevel2.resx">
       <DependentUpon>FrmLevel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevelTwo.resx">
+      <DependentUpon>FrmLevelTwo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinorFailScreen.resx">
       <DependentUpon>WinorFailScreen.cs</DependentUpon>

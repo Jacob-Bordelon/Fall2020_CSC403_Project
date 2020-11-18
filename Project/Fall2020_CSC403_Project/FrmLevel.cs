@@ -126,9 +126,11 @@ namespace Fall2020_CSC403_Project
                 if (player.PlayerInventory.QuantityItem(1000) >= 1)
                 {
                     Game.player.CharacterTemplate.LevelUp();
-                    this.Close();
-                    var lv2 = new FrmLevel2();
-                    lv2.Show();
+                    this.Hide();
+                    var gameForm = new FrmLevelTwo();
+
+                    gameForm.Closed += (s, args) => this.Close();
+                    gameForm.Show();
 
                 }
 
