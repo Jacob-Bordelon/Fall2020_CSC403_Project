@@ -25,6 +25,9 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             this.picPlayer.BackgroundImage = playerImage;
+            // Play music 
+            SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
+            simpleSound.Play();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -95,9 +98,7 @@ namespace Fall2020_CSC403_Project
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
 
-            // Play music 
-            SoundPlayer simpleSound = new SoundPlayer(global::Fall2020_CSC403_Project.Properties.Resources.e1m1);
-            simpleSound.Play();
+
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -118,9 +119,8 @@ namespace Fall2020_CSC403_Project
                 if (player.PlayerInventory.QuantityItem(1000) >= 1)
                 {
                     Game.player.CharacterTemplate.LevelUp();
-                    this.Close();
-                    var lv2 = new FrmLevel2();
-                    lv2.Show();
+                    // this.Close();
+                    // TODO: Goto level 2. Sadly not implemented
 
                 }
 
