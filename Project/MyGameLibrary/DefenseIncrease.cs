@@ -14,7 +14,7 @@ namespace Fall2020_CSC403_Project.code
         public DefenseIncrease()
         {
             ID = 1004;
-            Name = "DefenseUP";
+            Name = "defense";
             DEFAmount = 1;
             MaxNumberOfItems = 20;
         }
