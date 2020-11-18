@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -11,6 +12,9 @@ namespace Fall2020_CSC403_Project.code
         /// THis is the image for an enemy
         /// </summary>
         public Image Img { get; set; }
+
+        private PictureBox _picbox;
+
 
         /// <summary>
         /// this is the number of enemies in the game
@@ -28,7 +32,25 @@ namespace Fall2020_CSC403_Project.code
         /// <param name="collider">this is the collider for the enemy</param>
         public Enemy(Vector2 initPos, Collider collider) : base(initPos, collider)
         {
+            
             num++;
+        }
+
+        public PictureBox picbox {
+            get { return this._picbox; }
+            set
+            {
+                this._picbox = value;
+                this.Img = this._picbox.BackgroundImage;
+
+            }
+                 
+        }
+
+        public void destroy()
+        {
+            
+            num--;
         }
     }
 }

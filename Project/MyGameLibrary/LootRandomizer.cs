@@ -23,7 +23,8 @@ namespace Fall2020_CSC403_Project.code
         // Goes through array of loot objects 
         // It will through a random number between 0 and 100, and compares it to the droprate
         public Item GetRandomItem() {
-            Loot[] loot = { potion, strength, maxHPIncrease };
+            Loot[] loot = { potion, strength, maxHPIncrease, defense, maxHP };
+            randomItem = new Potion();
             randomNumber = random.Next(0, 100);
             foreach(Loot option in loot) {
                 if(randomNumber <= option.LootDropRate) {
@@ -34,7 +35,6 @@ namespace Fall2020_CSC403_Project.code
                     randomNumber -= option.LootDropRate;
                 }
             }
-
             return randomItem;
         }
 

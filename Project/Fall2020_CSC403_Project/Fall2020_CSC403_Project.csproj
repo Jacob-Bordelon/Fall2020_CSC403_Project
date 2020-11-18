@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmLevelTwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevelTwo.Designer.cs">
+      <DependentUpon>FrmLevelTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinorFailScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmLevelTwo.resx">
+      <DependentUpon>FrmLevelTwo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinorFailScreen.resx">
       <DependentUpon>WinorFailScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +168,8 @@
     <None Include="Resources\chestercheetah.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\raw images\item_fullhealth.png" />
+    <None Include="data\raw images\item_defense.png" />
     <None Include="Resources\e1m1.wav" />
     <None Include="Resources\Healing_potion_icon.png" />
     <None Include="Resources\defense-pngrepo-com.png" />
@@ -166,6 +177,8 @@
     <None Include="data\raw images\YouWin.jpg" />
     <None Include="Resources\applejacks.png" />
     <None Include="data\door.png" />
+    <Content Include="data\bush.png" />
+    <Content Include="data\bush2.png" />
     <Content Include="data\item_key.png" />
     <None Include="data\item_maxhp.png" />
     <Content Include="data\item_potion.png" />

@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code
         public MaxHP()
         {
             ID = 1005;
-            Name = "MaxHP";
+            Name = "fullhealth";
             MaxNumberOfItems = 20;
         }
         // Configure How this method is used
