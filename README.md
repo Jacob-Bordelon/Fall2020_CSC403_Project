@@ -1,7 +1,18 @@
 # Fall2020_CSC403_Project
 
-For this project, we implamented a Inventory System, Inventory GUI, Main Menu, Character Selection,
-Sounds and Effect, and an extra level.
+For this project, we implamented:
+
+* Inventory System 
+
+* Inventory GUI 
+
+* Main Menu
+
+* Character Selection
+
+* Sounds and Effect 
+
+* an extra level
 
 # Contributers
 Andrew Hall,
